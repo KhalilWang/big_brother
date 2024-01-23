@@ -1,0 +1,10 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+{% for data in data_list %}
+  - job_name: {{ data.job_name }}
+    static_configs:
+      - targets:
+        - {{ data.url }}
+{% endfor %}

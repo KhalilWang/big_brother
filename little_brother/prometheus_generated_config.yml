@@ -1,0 +1,12 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: job1
+    static_configs:
+      - targets:
+        - http://example1.com
+  - job_name: job2
+    static_configs:
+      - targets:
+        - http://example2.com
