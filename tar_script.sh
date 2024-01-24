@@ -4,10 +4,13 @@
 operation="usage"
 
 # 解析命令行参数
-while getopts ":cxh" opt; do
+while getopts ":cmxh" opt; do
   case ${opt} in
     c )
       operation="compress"
+      ;;
+    m )
+      operation="minimal_compress"
       ;;
     x )
       operation="decompress"
@@ -28,6 +31,10 @@ case ${operation} in
     tar -czvf big_brother_deploy.tar.gz ./deploy/*
     tar -czvf little_brother.tar.gz ./little_brother/*
     ;;
+  minimal_compress )
+    tar -czvf big_brother_deploy.tar.gz ./deploy/*
+    tar -czvf little_brother.tar.gz --exclude=./little_brother/venv ./little_brother/*
+    ;;
   decompress )
     tar -xzvf big_brother_deploy.tar.gz -C ./
     tar -xzvf little_brother.tar.gz -C ./
@@ -35,6 +42,7 @@ case ${operation} in
   usage )
     echo "Usage: $0 [-c | -x | -h]"
     echo "  -c: Compress files"
+    echo "  -m: Minimal compress(without venv file)"
     echo "  -x: Decompress files"
     echo "  -h: Display this help message"
     ;;
