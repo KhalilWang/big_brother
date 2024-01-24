@@ -1,0 +1,1 @@
+nohup python little_brother.py &

@@ -1,0 +1,21 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: center-1
+    static_configs:
+      - targets:
+        - "center-1:4021"
+  - job_name: gateway-1
+    static_configs:
+      - targets:
+        - "gateway-1:4021"
+  - job_name: role-1
+    static_configs:
+      - targets:
+        - "role-1:4021"
+  - job_name: Promethues
+    static_configs:
+      - targets:
+        - "localhost:9090"
+

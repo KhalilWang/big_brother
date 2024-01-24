@@ -1,0 +1,1 @@
+tar -czvf big_brother_deploy.tar.gz ./deploy/*
