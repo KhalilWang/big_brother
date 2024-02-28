@@ -19,6 +19,23 @@ def generate_prometheus_config(data_list):
     scrape_configs = ""
     for data in data_list:
         scrape_configs += f"  - job_name: {data['job_name']}\n    static_configs:\n      - targets:\n        - \"{data['url']}\"\n"
+    scrape_configs += """
+  - job_name: 'loki'
+    dns_sd_configs:
+      - names:
+          - loki-read
+          - loki-write
+          - loki-backend
+        type: A
+        port: 3100
+        
+#  - job_name: 'promtail'
+#    dns_sd_configs:
+#      - names:
+#          - promtail
+#        type: A
+#        port: 9080
+"""
     scrape_configs += "\n"
 
     return f"{global_config}{scrape_configs}"

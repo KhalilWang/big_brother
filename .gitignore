@@ -1,1 +1,3 @@
 *.tar.gz
+deploy/loki
+deploy/test_log_save

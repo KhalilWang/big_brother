@@ -28,11 +28,11 @@ done
 # 根据操作执行相应的命令
 case ${operation} in
   compress )
-    tar -czvf big_brother_deploy.tar.gz ./deploy/*
+    tar -czvf big_brother_deploy.tar.gz --exclude='.deploy/loki' --exclude='.deploy/test_log_save'  ./deploy/*
     tar -czvf little_brother.tar.gz ./little_brother/*
     ;;
   minimal_compress )
-    tar -czvf big_brother_deploy.tar.gz ./deploy/*
+    tar -czvf big_brother_deploy.tar.gz --exclude='.deploy/loki' --exclude='.deploy/test_log_save' ./deploy/*
     tar -czvf little_brother.tar.gz --exclude=./little_brother/venv ./little_brother/*
     ;;
   decompress )
