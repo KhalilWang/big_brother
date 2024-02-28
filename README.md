@@ -11,7 +11,7 @@
 - deploy 目录下直接使用 `docker-compose up -d` 即可
 - little_brother 使用方法：
     0. 拥有 python3 环境
-    1. 进入 little_brother 下创建 venv 环境 `python3 -m venv.`
+    1. 进入 little_brother 下创建 venv 环境 `python3 -m venv ./venv/`
     2. 安装依赖 `sh python_install.sh`
     3. 运行 little_brother `sh start.sh`
-    4. 观察 nohup.out 文件输出后，去对应的 4000 M1x后台服务器使用节点嗅探功能
+    4. 观察 nohup.out 文件输出后，去对应的 4000 M1x后台服务器使用节点嗅探功能   

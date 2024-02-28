@@ -1,0 +1,75 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: gateway-5
+    static_configs:
+      - targets:
+        - "10.128.0.16:4021"
+  - job_name: gateway-4
+    static_configs:
+      - targets:
+        - "10.156.0.20:4021"
+  - job_name: gateway-2
+    static_configs:
+      - targets:
+        - "10.140.0.30:4021"
+  - job_name: center-1
+    static_configs:
+      - targets:
+        - "10.148.15.211:4021"
+  - job_name: gateway-1
+    static_configs:
+      - targets:
+        - "10.148.15.209:4021"
+  - job_name: role-1
+    static_configs:
+      - targets:
+        - "10.148.15.213:4021"
+  - job_name: role-2
+    static_configs:
+      - targets:
+        - "10.148.15.242:4021"
+  - job_name: role-3
+    static_configs:
+      - targets:
+        - "10.148.15.208:4021"
+  - job_name: role-4
+    static_configs:
+      - targets:
+        - "10.148.15.210:4021"
+  - job_name: role-5
+    static_configs:
+      - targets:
+        - "10.148.15.230:4021"
+  - job_name: role-6
+    static_configs:
+      - targets:
+        - "10.148.15.212:4021"
+  - job_name: gateway-3
+    static_configs:
+      - targets:
+        - "10.146.0.17:4021"
+  - job_name: gateway-6
+    static_configs:
+      - targets:
+        - "10.158.0.17:4021"
+  - job_name: prometheus
+    static_configs:
+      - targets:
+        - "localhost:9090"
+  - job_name: 'loki'
+    dns_sd_configs:
+      - names:
+          - loki-read
+          - loki-write
+          - loki-backend
+        type: A
+        port: 3100
+  - job_name: 'promtail'
+    dns_sd_configs:
+      - names:
+          - promtail
+        type: A
+        port: 9080
+
